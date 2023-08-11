@@ -1,0 +1,45 @@
+server:
+  port: 8080
+
+cache:
+  default-exp: 1000 #cache expiration time
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://library-db.cn0an2xvybow.us-west-2.rds.amazonaws.com:3306/reactlibrarydatabase
+    username: admin
+    password: test123456
+
+    #    url: jdbc:mysql://127.0.0.1:3306/reactlibrarydatabaselocal
+    #    username: root
+    #    password: root
+  redis:
+    host: librarycache-0001-001.0oa7rq.0001.usw2.cache.amazonaws.com
+#    host: 127.0.0.1
+
+    port: 6379
+
+    database: 0
+    #password:
+  cache:
+    type: redis #由redis进行缓存,一共有10种缓存方案
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    database: mysql
+    show-sql: true #开发阶段,打印要执行的sql语句.
+    hibernate:
+      ddl-auto: update
+  data:
+    rest:
+      base-path: /api
+
+#better be private
+okta:
+  oauth2:
+    client-id: 0oaaadpuebaQRCcNl5d7
+    issuer: https://dev-27935582.okta.com/oauth2/default
+
+
+
